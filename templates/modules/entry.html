@@ -1,0 +1,6 @@
+<div class="entry">
+  <a href="/detail/{{ entry.slug }}">view all</a>
+  <div class="date">{{ locale.format_date(entry.published, full_format=True, shorter=True) }}</div>
+  <a href="/profile/{{entry.author_name}}">{{entry.author_name}}</a>
+  <div class="body">{% raw entry.html %}</div>
+</div>

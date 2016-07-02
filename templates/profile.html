@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <p>{{user.name}}</p>
+  <p>{{user.email}}</p>
+  {% if not hasFollowed %}
+  <a href="/follow/{{user.name}}">follow him/her</a>
+  {% else %}
+  <a href="/unfollow/{{user.name}}">unfollow him/her</a>
+  {% end %}
+  {% for entry in entries %}
+    {% module Entry(entry) %}
+  {% end %}
+{% end %}
