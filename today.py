@@ -31,8 +31,12 @@ from myHandlers.PostHandlers import PublishHandler,EntryHandler,CommentHandler
 from myHandlers.Relation import ProfileHandler,\
                                                     FollowHandler,UnFollowHandler,\
                                                     MyFollowerHandler, MyFollowHandler\
+<<<<<<< HEAD
                                                     ,MyProfileHandler
 from myHandlers.Paginator import Paginator
+=======
+                                                    ,MyProfileHandler\
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
 
 
 from tornado.options import define, options
@@ -47,7 +51,10 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", HomeHandler),
+<<<<<<< HEAD
             (r"/(\?[^/]+)", HomeHandler),
+=======
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
             (r"/all", AllPostHandler),
             (r"/auth/signup", AuthSignupHandler),
             (r"/auth/signin", AuthSigninHandler),
@@ -66,7 +73,11 @@ class Application(tornado.web.Application):
             app_title=u"TODAY",
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static"),
+<<<<<<< HEAD
             ui_modules={"Entry": EntryModule, "Paginator":Paginator},
+=======
+            ui_modules={"Entry": EntryModule},
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
             xsrf_cookies=True,
             cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
             login_url="/auth/signin",

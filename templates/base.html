@@ -15,19 +15,31 @@
             <a href="/auth/signout">{{ _("Sign out") }}</a>
             <a href="/myProfile">myProfile</a>
           {% else %}
+<<<<<<< HEAD
             <a href="/auth/signin">{{ _("Sign in") }}</a>
             <a href="/auth/signup">{{ _("Sign up") }}</a>
+=======
+            {% raw _('<a href="%(url)s">Sign in</a>') % {"url": "/auth/signin" } %}
+            {% raw _('<a href="%(url)s">Sign up</a>') % {"url": "/auth/signup" } %}
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
           {% end %}
         </div>
         <h1><a href="/">{{ escape(handler.settings["app_title"]) }}</a></h1>
       </div>
       <div id="content">
+<<<<<<< HEAD
         <a href="/?all=True">all today</a>
         {% if current_user %}
           <a href="/">我的圈子</a>
           <a href="/myfollower">关注我的</a>
           <a href="/myfollow">我关注的</a>
         {% end %}
+=======
+        <a href="/">我的圈子</a>
+        <a href="/all">all today</a>
+        <a href="/myfollower">关注我的</a>
+        <a href="/myfollow">我关注的</a>
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
         {% block body %}{% end %}
       </div>
     </div>

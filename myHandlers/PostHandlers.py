@@ -5,7 +5,10 @@ import tornado.web
 import unicodedata
 import re
 
+<<<<<<< HEAD
 page_size = 4
+=======
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
 
 class PublishHandler(BaseHandler):
     @tornado.web.authenticated
@@ -40,6 +43,7 @@ class EntryHandler(BaseHandler):
         entry = self.db.get("SELECT * FROM entries WHERE slug = %s", slug)
         entry.author_name = self.db.get("SELECT * FROM users WHERE id = %s", entry.author_id).name
         comments = self.db.query("SELECT * FROM comments where entry_id=%s ORDER BY published "
+<<<<<<< HEAD
                                 "DESC", entry.id)
         results_count = len(comments)
         page = int(self.get_argument("page", 1))
@@ -51,6 +55,11 @@ class EntryHandler(BaseHandler):
         if not entry: raise tornado.web.HTTPError(404)
         self.render("detail.html", entry=entry, comments=comments, \
                             page=page, page_size=page_size, results_count=results_count)
+=======
+                                "DESC LIMIT 5", entry.id)
+        if not entry: raise tornado.web.HTTPError(404)
+        self.render("detail.html", entry=entry, comments=comments)
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
 
 class CommentHandler(BaseHandler):
     def post(self, slug):

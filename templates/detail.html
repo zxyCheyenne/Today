@@ -6,16 +6,25 @@
   <a href="/profile/{{entry.author_name}}">{{entry.author_name}}</a>
   <div class="body">{% raw entry.html %}</div>
   
+<<<<<<< HEAD
   <h3>Comments:</h3>
+=======
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
   {% for comment in comments %}
   <div class = "entry">
   <p>author:{{comment.author_name}}</p>
   <p>content:{{comment.html}}</p>
+<<<<<<< HEAD
   <div class="date">time:{{ locale.format_date(comment.published, full_format=True, shorter=True) }}</div>
     </div>
     <hr/>
   {% end %}
   {% module Paginator(page, page_size, results_count) %}
+=======
+  <div class="date">{{ locale.format_date(comment.published, full_format=True, shorter=True) }}</div>
+    </div>
+  {% end %}
+>>>>>>> faa8d0b2fbf760d32bb7eb41553ae2c6ac1de25a
   <form action= {{"/comment/"+entry.slug}} method="post" class="compose">
     <div style="margin-bottom:5px"><textarea name="markdown" rows="3" cols="40" class="markdown"></textarea></div>
     <div>
