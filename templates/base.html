@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ escape(handler.settings["app_title"]) }}</title>
+    <link rel="stylesheet" href="{{ static_url("today.css") }}" type="text/css">
+    {% block head %}{% end %}
+  </head>
+  <body>
+    <div id="body">
+      <div id="header">
+        <div style="float:right">
+          {% if current_user %}
+            <a href="/newPost">{{ _("newPost") }}</a>
+            <a href="/auth/signout">{{ _("Sign out") }}</a>
+            <a href="/myProfile">myProfile</a>
+          {% else %}
+            <a href="/auth/signin">{{ _("Sign in") }}</a>
+            <a href="/auth/signup">{{ _("Sign up") }}</a>
+          {% end %}
+        </div>
+        <h1><a href="/">{{ escape(handler.settings["app_title"]) }}</a></h1>
+      </div>
+      <div id="content">
+        <a href="/?all=True">all today</a>
+        {% if current_user %}
+          <a href="/">我的圈子</a>
+          <a href="/myfollower">关注我的</a>
+          <a href="/myfollow">我关注的</a>
+        {% end %}
+        {% block body %}{% end %}
+      </div>
+    </div>
+    {% block bottom %}{% end %}
+  </body>
+</html>

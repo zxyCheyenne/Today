@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>your follows</h1>
+{% for following in followings %}
+ <a href="/profile/{{following.followed_name}}">{{following.followed_name}}</a>
+{% end %}
+
+{% end %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="entry">
+  <div class="date">{{ locale.format_date(entry.published, full_format=True, shorter=True) }}</div>
+  <a href="/profile/{{entry.author_name}}">{{entry.author_name}}</a>
+  <div class="body">{% raw entry.html %}</div>
+  
+  <h3>Comments:</h3>
+  {% for comment in comments %}
+  <div class = "entry">
+  <p>author:{{comment.author_name}}</p>
+  <p>content:{{comment.html}}</p>
+  <div class="date">time:{{ locale.format_date(comment.published, full_format=True, shorter=True) }}</div>
+    </div>
+    <hr/>
+  {% end %}
+  {% module Paginator(page, page_size, results_count) %}
+  <form action= {{"/comment/"+entry.slug}} method="post" class="compose">
+    <div style="margin-bottom:5px"><textarea name="markdown" rows="3" cols="40" class="markdown"></textarea></div>
+    <div>
+      <input type="submit" value="comment" class="submit"/>
+      &nbsp;
+    </div>
+    {% module xsrf_form_html() %}
+  </form>
+</div>
+{% end %}
