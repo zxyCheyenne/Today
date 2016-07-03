@@ -11,4 +11,5 @@
   {% for entry in entries %}
     {% module Entry(entry) %}
   {% end %}
+  {% module Paginator(page, page_size, results_count) %}
 {% end %}
