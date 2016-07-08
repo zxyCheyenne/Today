@@ -3,21 +3,56 @@
   <head>
     <meta charset="UTF-8">
     <title>{{ escape(handler.settings["app_title"]) }}</title>
-    <link rel="stylesheet" href="{{ static_url("today.css") }}" type="text/css">
+    <!-- 区分IE，使用不同版本的公共JS库 -->
+    <!--[if !IE]>-->
+    <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <!-- <![endif]-->
+
+    <!--[if IE]>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <![endif]-->
+
+    <!-- 公共JS库加载失败了，则加载自家的 -->
+    <!--[if !IE]>-->
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src=\"{{ static_url('js/jquery.min.js') }}\">"+"<"+"/script>");
+    </script>
+    <!-- <![endif]-->
+
+    <!--[if IE]>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='../js/jquery1x.min.js'>"+"<"+"/script>");
+    </script>
+    <![endif]-->
+
+    <!-- 对移动设备加载优化js -->
+    <script type="text/javascript">
+        if('ontouchstart' in document.documentElement) document.write("<script src=\"{{ static_url('js/jquery.mobile.min.js') }}\">"+"<"+"/script>");
+    </script>
+    <link rel="stylesheet" href="{{ static_url("css/today.css") }}" type="text/css">
+    <script type="text/javascript" src="{{ static_url("js/today.js") }}"></script>
     {% block head %}{% end %}
   </head>
   <body>
+    <div style="float:right">
+      {% if current_user %}
+        <a href="/newPost">{{ _("newPost") }}</a>
+        <a href="/auth/signout">{{ _("Sign out") }}</a>
+        <a href="/myProfile">myProfile</a>
+      {% else %}
+        <a href="/auth/signin">{{ _("Sign in") }}</a>
+        <a href="/auth/signup">{{ _("Sign up") }}</a>
+      {% end %}
+    </div>
     <div id="body">
       <div id="header">
         <div style="float:right">
-          {% if current_user %}
-            <a href="/newPost">{{ _("newPost") }}</a>
-            <a href="/auth/signout">{{ _("Sign out") }}</a>
-            <a href="/myProfile">myProfile</a>
-          {% else %}
-            <a href="/auth/signin">{{ _("Sign in") }}</a>
-            <a href="/auth/signup">{{ _("Sign up") }}</a>
-          {% end %}
+          <form method="get" id="searchform" action="">
+            <fieldset class="search">
+                 <input type="text" class="box" name="s" id="s" class="inputText" placeholder="search" x-webkit-speech>
+                  <button class="btn" title="SEARCH"> </button>
+            </fieldset>
+          </form>
         </div>
         <h1><a href="/">{{ escape(handler.settings["app_title"]) }}</a></h1>
       </div>

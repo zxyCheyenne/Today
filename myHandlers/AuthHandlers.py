@@ -34,7 +34,7 @@ class AuthSignupHandler(BaseHandler):
             self.get_argument("email"), self.get_argument("name"),
             hashed_password)
         self.set_secure_cookie("today_user", str(user_id))
-        self.xsrf_cookie_kwargs=dict(user_name = name)
+        self.xsrf_cookie_kwargs=dict(user_name = self.get_argument("name"))
         self.redirect(self.get_argument("next", "/"))
 
 class AuthSigninHandler(BaseHandler):
