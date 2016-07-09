@@ -32,7 +32,7 @@ make sure you have MySQL installed， then create a database and user for this a
    ```
  - Create prerequisite tables in your database
    ```
-      mysql --user=blog --password=blog --database=blog < schema.sql
+      mysql --user=today --password=today --database=today < schema.sql
    ```
 
 Run Today:
