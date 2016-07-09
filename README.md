@@ -20,7 +20,7 @@ Before running TODAY, you should do:
 make sure you have MySQL installed， then create a database and user for this app
  - Connect to MySQL as a user that can create databases and users:
    ```
-      mysql > -u root
+      mysql -u root -p
    ```
  - Create a database named "today":
    ```
@@ -32,7 +32,7 @@ make sure you have MySQL installed， then create a database and user for this a
    ```
  - Create prerequisite tables in your database
    ```
-      mysql > --user=blog --password=blog --database=blog < schema.sql
+      mysql --user=blog --password=blog --database=blog < schema.sql
    ```
 
 Run Today:
