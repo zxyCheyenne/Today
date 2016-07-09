@@ -1,5 +1,20 @@
+<!--
 <div class="entry">
   <a href="/profile/{{entry.author_name}}" class="entry-author">{{entry.author_name}}</a>
   <a href="/detail/{{ entry.slug }}" class="entry-body"><div>{% raw entry.html %}</div></a>
   <div class="date">{{ locale.format_date(entry.published, full_format=True, shorter=True) }}</div>
+</div>
+  -->
+
+<div class="col s12">
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title">Card Title</span>
+      <p>{% raw entry.html %}</p>
+    </div>
+    <div class="card-action">
+      <a href="/profile/{{entry.author_name}}">{{entry.author_name}}</a>
+      <span>{{ locale.format_date(entry.published, full_format=True, shorter=True) }}</span>
+    </div>
+  </div>
 </div>

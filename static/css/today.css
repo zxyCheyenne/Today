@@ -15,14 +15,9 @@
  */
 
 body {
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#eee), to(#aaa)); /** Chrome Safari **/ 
-  background: -moz-linear-gradient(top, #eee, #aaa); /** FireFox **/
-  background: -o-linear-gradient(top, #eee, #aaa);  /** Opear **/ 
-  background: -ms-linear-gradient(#eeeeee 0%,#aaaaaa 100%);  /** IE9 IE10 **/
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee',endColorstr='#aaaaaa',grandientType=1); /** IE7 **/ 
-  -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee',endColorstr='#aaaaaa',grandientType=1); /** IE8 **/
+  background: white;
   color: black;
-  margin: 15px;
+  margin: 0px;
   margin-top: 0;
 }
 
@@ -223,4 +218,9 @@ fieldset.search:hover {
 }
 .search button.btn:hover {
     background: url(http://sandbox.runjs.cn/uploads/rs/339/livk7pl5/search_black.png) no-repeat bottom right;
+}
+
+/* material design */
+header, main {
+  padding-left: 240px;
 }

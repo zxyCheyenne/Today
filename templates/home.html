@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 
 {% block body %}
-  {% for entry in entries %}
-    {% module Entry(entry) %}
-  {% end %}
+    <!-- Page Layout here -->
+    <div class="row">
+	  {% for entry in entries %}
+		{% module Entry(entry) %}
+	  {% end %}
+
+    </div>
   <p>paginator</p>
   {% module Paginator(page, page_size, results_count) %}
   <div><p>welcome to Today!</p></div>
