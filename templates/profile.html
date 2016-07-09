@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block body %}
+  {% if current_user.id == user.id %}
+  <a href="/edit/profile">edit profile</a>
+  {% end %}
   <p>{{user.name}}</p>
   <p>{{user.email}}</p>
+  icon:<img src="{{ static_url(user.head_path) }}"  alt="icon" /><br>
   {% if not hasFollowed %}
   <a href="/follow/{{user.name}}">follow him/her</a>
   {% else %}

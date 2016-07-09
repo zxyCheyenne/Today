@@ -39,7 +39,8 @@ CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100) NOT NULL UNIQUE,
     name VARCHAR(100) NOT NULL UNIQUE,
-    hashed_password VARCHAR(100) NOT NULL
+    hashed_password VARCHAR(100) NOT NULL,
+    head_path VARCHAR(100) NOT NULL
 );
 
 DROP TABLE IF EXISTS following;
