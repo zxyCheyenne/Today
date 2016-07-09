@@ -28,7 +28,7 @@ make sure you have MySQL installed， then create a database and user for this a
    ```
  - Allow the "today" user to connect with the password "today":
    ```
-      mysql > RANT ALL PRIVILEGES ON blog.* TO 'today'@'localhost' IDENTIFIED BY 'today';
+      mysql > GRANT ALL PRIVILEGES ON today.* TO 'today'@'localhost' IDENTIFIED BY 'today';
    ```
  - Create prerequisite tables in your database
    ```
