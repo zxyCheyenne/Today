@@ -6,6 +6,10 @@
     <!-- 区分IE，使用不同版本的公共JS库 -->
     <!--[if !IE]>-->
     <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
     <!-- <![endif]-->
 
     <!--[if IE]>
@@ -17,13 +21,12 @@
     <script type="text/javascript">
         window.jQuery || document.write("<script src=\"{{ static_url('js/jquery.min.js') }}\">"+"<"+"/script>");
     </script>
-    <!-- <![endif]-->
 
-    <!--[if IE]>
+    <link rel="stylesheet" href="{{ static_url("css/materialize.min.css") }}" type="text/css">
     <script type="text/javascript">
-        window.jQuery || document.write("<script src='../js/jquery1x.min.js'>"+"<"+"/script>");
+        window.jQuery || document.write("<script src=\"{{ static_url('js/materialize.min.js') }}\">"+"<"+"/script>");
     </script>
-    <![endif]-->
+    <!-- <![endif]-->
 
     <!-- 对移动设备加载优化js -->
     <script type="text/javascript">
@@ -34,6 +37,7 @@
     {% block head %}{% end %}
   </head>
   <body>
+  <!--
     <div style="float:right">
       {% if current_user %}
         <a href="/newPost">{{ _("newPost") }}</a>
@@ -65,6 +69,23 @@
         {% end %}
         {% block body %}{% end %}
       </div>
+    </div>
+   -->
+    <!-- Navbar goes here -->
+
+    <!-- Page Layout here -->
+    <div class="row">
+
+      <div class="col s3">
+        col s3
+        <!-- Grey navigation panel -->
+      </div>
+
+      <div class="col s9">
+        col s9
+        <!-- Teal page content  -->
+      </div>
+
     </div>
     {% block bottom %}{% end %}
   </body>
