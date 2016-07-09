@@ -12,10 +12,12 @@ Today can be run on Linux. We support to choose Ubuntu as OS, and both 32 bit an
 Before running TODAY, you should do:
 
 * sudo apt-get intall pip
-* sudo apt-get install tornado
+* sudo apt-get pip tornado
 * sudo pip install bcrypt
 * sudo pip install future
 * sudo pip install markdown
+
+make sure you have MySQL installed
 
 Run Today:
 ----------
