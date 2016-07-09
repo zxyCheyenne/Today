@@ -19,14 +19,19 @@ Before running TODAY, you should do:
 
 make sure you have MySQL installed， then create a database and user for this app
  - Connect to MySQL as a user that can create databases and users:
-   ```mysql > -u root```
+   ```
+      mysql > -u root
+   ```
  - Create a database named "today":
-   ```mysql > CREATE DATABASE today;```
+   ```
+     mysql > CREATE DATABASE today;
+   ```
  - Allow the "today" user to connect with the password "today":
-   ```mysql > RANT ALL PRIVILEGES ON blog.* TO 'today'@'localhost' IDENTIFIED BY 'today';```
+   ```
+      mysql > RANT ALL PRIVILEGES ON blog.* TO 'today'@'localhost' IDENTIFIED BY 'today';
+   ```
  - Create prerequisite tables in your database
    ```
-      cd Today
       mysql > --user=blog --password=blog --database=blog < schema.sql
    ```
 
