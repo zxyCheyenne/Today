@@ -71,6 +71,7 @@ pre {
 a,
 a code {
   color: #00c;
+  text-decoration: none;
 }
 
 #body {
@@ -92,10 +93,6 @@ a code {
   color: white;
 }
 
-#header h1 a {
-  text-decoration: none;
-}
-
 #footer,
 #content {
   margin-left: 10px;
@@ -106,13 +103,34 @@ a code {
   margin-top: 3em;
 }
 
-.entry h1 a {
+.entry a {
   color: black;
   text-decoration: none;
 }
 
 .entry {
   margin-bottom: 2em;
+  border: 1px solid #ddd;
+  overflow:hidden;
+}
+
+.entry-author {
+  display:block;
+  width:15%;
+  float:left;
+  text-align:center;
+}
+
+.entry-body {
+  display:block;
+  float:right;
+  width:85%
+}
+
+.date {
+  float:right;
+  width:80%;
+  text-align:right;
 }
 
 .entry .date {
@@ -160,12 +178,12 @@ a code {
 
 /* search form */
 /* 链接 */
-a {
+#search a {
     text-decoration:none;
     color:#1c00ff;
 }
  
-a:hover {
+#search a:hover {
     color:#5f00e4;
 }
 

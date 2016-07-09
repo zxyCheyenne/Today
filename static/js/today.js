@@ -1,8 +1,8 @@
 function setPageHeight() {
-	$(body).css("min-height", window.screen.height);
+	// load page with proper height
+	$(body).css("min-height", document.body.scrollHeight);
 }
 
 window.onload = function() {
-	alert("ok");
 	setPageHeight();
 }
