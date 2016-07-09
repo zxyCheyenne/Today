@@ -28,10 +28,9 @@ import tornado.web
 from myHandlers.HomeHandler import HomeHandler
 from myHandlers.AuthHandlers import *
 from myHandlers.PostHandlers import PublishHandler,EntryHandler,CommentHandler
-from myHandlers.Relation import ProfileHandler,\
-                                                    FollowHandler,UnFollowHandler,\
-                                                    MyFollowerHandler, MyFollowHandler\
-                                                    ,MyProfileHandler
+from myHandlers.ProfileHandler import *
+from myHandlers.Relation import FollowHandler,UnFollowHandler,\
+                                MyFollowerHandler, MyFollowHandler
 from myHandlers.Paginator import Paginator
 
 
@@ -54,6 +53,7 @@ class Application(tornado.web.Application):
             (r"/detail/([^/]+)", EntryHandler),
             (r"/comment/([^/]+)", CommentHandler),
             (r"/profile/([^/]+)", ProfileHandler),
+            (r"/edit/profile", ProfileEditHandler),
             (r"/follow/([^/]+)", FollowHandler),
             (r"/unfollow/([^/]+)", UnFollowHandler),
             (r"/myfollower", MyFollowerHandler),

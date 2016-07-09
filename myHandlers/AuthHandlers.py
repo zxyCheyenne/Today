@@ -7,7 +7,10 @@ from tornado import gen
 # A thread pool to be used for password hashing with bcrypt.
 executor = concurrent.futures.ThreadPoolExecutor(2)
 
-from BaseHandler import BaseHandler 
+from BaseHandler import BaseHandler
+
+default_head_dir = "files/icon"
+default_head_path = "default_icon.jpg"
 
 class AuthSignupHandler(BaseHandler):
     def get(self):
@@ -29,10 +32,10 @@ class AuthSignupHandler(BaseHandler):
             bcrypt.hashpw, tornado.escape.utf8(self.get_argument("password")),
             bcrypt.gensalt())
         user_id = self.db.execute(
-            "INSERT INTO users (email, name, hashed_password) "
-            "VALUES (%s, %s, %s)",
+            "INSERT INTO users (email, name, hashed_password, head_path) "
+            "VALUES (%s, %s, %s, %s)",
             self.get_argument("email"), self.get_argument("name"),
-            hashed_password)
+            hashed_password, default_head_dir+"/small/"+default_head_path)
         self.set_secure_cookie("today_user", str(user_id))
         self.xsrf_cookie_kwargs=dict(user_name = self.get_argument("name"))
         self.redirect(self.get_argument("next", "/"))
