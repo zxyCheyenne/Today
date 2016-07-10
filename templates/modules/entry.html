@@ -3,4 +3,9 @@
   <div class="date">{{ locale.format_date(entry.published, full_format=True, shorter=True) }}</div>
   <a href="/profile/{{entry.author_name}}">{{entry.author_name}}</a>
   <div class="body">{% raw entry.html %}</div>
+  {% if entry.pic_paths %}
+  {% for pic_path in entry.pic_paths %}
+  <img src="{{ static_url(pic_path) }}"  alt="icon" /><br>
+  {% end %}
+  {% end %}
 </div>

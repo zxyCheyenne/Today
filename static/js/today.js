@@ -3,6 +3,6 @@ function setPageHeight() {
 }
 
 window.onload = function() {
-	alert("ok");
+	//alert("ok");
 	setPageHeight();
 }

@@ -15,9 +15,8 @@ default_head_dir = "files/icon"
 default_head_path = "default_icon.jpg"
 
 
-image_type = ["image/jpg",
+image_type = ["image/gif",
               "image/jpeg",
-              "image/bmp",
               "image/png"]
 
 small_image_size = 50,50
@@ -54,6 +53,7 @@ class ProfileHandler(BaseHandler):
                             page=page, page_size=page_size, results_count=results_count)
 
 class MyProfileHandler(BaseHandler):
+    @tornado.web.authenticated
     def get(self):
         user_name = self.db.get("SELECT * FROM users WHERE id = %s", self.current_user.id).name
         self.redirect("/profile/"+user_name)

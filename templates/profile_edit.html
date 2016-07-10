@@ -4,7 +4,7 @@
   <form action="{{ request.path }}" enctype="multipart/form-data" method="post">
     user_name:<input name="name" type="text" value={{user.name if user else ""}}><br>
     icon:<img src="{{ static_url(user.head_path) }}"  alt="icon" /><br>
-    <input name="iconFile" type="file"><br>
+    <input name="iconFile" type="file" accept="image/png, image/gif, image/jpeg"><br>
     {% module xsrf_form_html() %}
     <input type="submit">
   </form>
