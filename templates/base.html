@@ -74,37 +74,46 @@
     <header>
       <!-- Navbar goes here -->
       <nav class="top-nav">
-        <div class="container">
-          <div class="nav-wrapper">
-            <a href="#!" class="brand-logo"><a href="/">{{ escape(handler.settings["app_title"]) }}</a></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-              <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-              <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-              <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
-            </ul>
-          </div>
+        <div class="nav-wrapper" id="top-nav-wrapper">
+          <a onclick="showSide()" class="hide-on-med-and-down left" style="margin-right:20px;">
+            <i class="material-icons">menu</i>
+          </a>
+          <a href="#!" class="brand-logo"><a href="/">{{ escape(handler.settings["app_title"]) }}</a></a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <form method="get" id="searchform" action="/search/">
+                <div class="input-field">
+                  <input id="search" type="search" required style="margin-top:10px;padding-top:10px;padding-bottom:10px;opacity:0.3">
+                  <label for="search"><i class="material-icons" style="margin-top:-10px">search</i></label>
+                  <i class="material-icons" style="margin-top:-10px">close</i>
+                </div>
+              </form>
+            </li>
+            <!--
+            <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
+            <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+            <li><a><i class="material-icons">more_vert</i></a></li>
+             -->
+          </ul>
         </div>
       </nav>
-      <div class="container">
-        <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
-          <i class="material-icons">menu</i>
-        </a>
-      </div>
       <ul id="nav-mobile" class="side-nav fixed" style="transform:translateX(0%);">
         <li class="logo"><a href="/">{{ escape(handler.settings["app_title"]) }}</a></li>
         {% if current_user %}
-          <li class="logo"><a>User's photo</a></li>
+          <li class="logo"><a id="logo-container" href="/myProfile"><img src="{{ static_url(current_user.head_path) }}" alt="icon" class="circle responsive-img"/></a></li>
+          <li class="bold"><a href="/?all=True">随便逛逛</a></li>
           <li class="bold"><a href="/">我的圈子</a></li>
           <li class="bold"><a href="/myfollower">关注我的</a></li>
           <li class="bold"><a href="/myfollow">我关注的</a></li>
-          <li class="bold"><a href="/auth/signout">{{ _("Sign out") }}</a></li>
-          <li class="bold"><a href="/myProfile">myProfile</a></li>
+          <!--<li class="bold"><a href="/auth/signout">{{ _("Sign out") }}</a></li>-->
+          <li class="bold"><a href="/auth/signout">退出</a></li>
         {% else %}
-          <li class="bold"><a href="/auth/signin">{{ _("Sign in") }}</a></li>
-          <li class="bold"><a href="/auth/signup">{{ _("Sign up") }}</a></li>
+          <!--<li class="bold"><a href="/auth/signin">{{ _("Sign in") }}</a></li>-->
+          <li class="bold"><a href="/auth/signin">登录</a></li>
+          <!--<li class="bold"><a href="/auth/signup">{{ _("Sign up") }}</a></li>-->
+          <li class="bold"><a href="/auth/signup">注册</a></li>
         {% end %}
-        <li class="no-padding"><a><< close</a></li>
+          <li class="no-padding" onclick="hideSide()"><a><<</a></li>
       </ul>
     </header>
 
