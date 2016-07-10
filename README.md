@@ -17,6 +17,9 @@ Before running TODAY, you should do:
 * sudo pip install future
 * sudo pip install markdown
 * sudo pip install torndb
+* sudo pip install jieba
+* sudo pip install python-numpy
+* sudo pip install networkx
 
 make sure you have MySQL installed， then create a database and user for this app
  - Connect to MySQL as a user that can create databases and users:

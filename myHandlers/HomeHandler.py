@@ -35,4 +35,8 @@ class HomeHandler(BaseHandler):
 
         for entry in entries:
             entry.author_name = self.db.get("SELECT * FROM users WHERE id = %s", int(entry.author_id)).name
+            if entry.imgPaths != "":
+                entry.pic_paths = entry.imgPaths.strip(' ').split(' ')
+            else:
+                entry.pic_paths = []
         self.render("home.html", entries=entries, page=page, page_size=page_size, results_count=results_count)

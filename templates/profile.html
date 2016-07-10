@@ -6,7 +6,7 @@
   {% end %}
   <p>{{user.name}}</p>
   <p>{{user.email}}</p>
-  icon:<img src="{{ static_url(user.head_path) }}"  alt="icon" /><br>
+  头像:<img src="{{ static_url(user.head_path) }}"  alt="icon" /><br>
   {% if not hasFollowed %}
   <a href="/follow/{{user.name}}">follow him/her</a>
   {% else %}

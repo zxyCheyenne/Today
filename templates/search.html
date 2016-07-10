@@ -1,0 +1,16 @@
+ {% extends "base.html" %}
+
+{% block body %}
+{% for user in users %}
+<div>
+	<p>username:{{ user.name }}</p>
+	<p>useremail:{{ user.email }}</p>
+</div>
+{% end %}
+{% for entry in entries %}
+<div>
+	<p>content:{{ entry.html }}</p>
+	<p>author:{{ entry.author_id }}</p>
+</div>
+{% end %}
+{% end %}

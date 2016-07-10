@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 {% block body %}
+  {% if error %}
+  <span style="color: red">Error: {{ error }}</span><p>
+  {% end %}
   <form action="{{ request.path }}" enctype="multipart/form-data" method="post">
     user_name:<input name="name" type="text" value={{user.name if user else ""}}><br>
-    icon:<img src="{{ static_url(user.head_path) }}"  alt="icon" /><br>
-    <input name="iconFile" type="file"><br>
+    头像:<img src="{{ static_url(user.head_path) }}"  alt="icon" /><br>
+    <input name="iconFile" type="file" accept="image/png, image/gif, image/jpeg"><br>
     {% module xsrf_form_html() %}
     <input type="submit">
   </form>

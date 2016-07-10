@@ -31,6 +31,8 @@ CREATE TABLE entries (
     slug VARCHAR(100) NOT NULL UNIQUE,
     html MEDIUMTEXT NOT NULL,
     published DATETIME NOT NULL,
+    imageCount INT NOT NULL,
+    imgPaths VARCHAR(500),
     KEY (published)
 );
 
