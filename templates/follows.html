@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block body %}
-<h1>your follows</h1>
-{% for following in followings %}
- <a href="/profile/{{following.followed_name}}">{{following.followed_name}}</a>
+<h1>your followers</h1>
+{% for follow in follows %}
+头像:<img src="{{ static_url(follow.head_path) }}"  alt="icon" /><br>
+ <a href="/profile/{{follow.followed_name}}">{{follow.followed_name}}</a>
 {% end %}
-
 {% end %}
