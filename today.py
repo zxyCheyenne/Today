@@ -32,6 +32,7 @@ from myHandlers.ProfileHandler import *
 from myHandlers.Relation import FollowHandler,UnFollowHandler,\
                                 MyFollowerHandler, MyFollowHandler
 from myHandlers.Paginator import Paginator
+from myHandlers.SearchHandlers import SearchHandler
 
 
 from tornado.options import define, options
@@ -59,6 +60,7 @@ class Application(tornado.web.Application):
             (r"/myfollower", MyFollowerHandler),
             (r"/myfollow", MyFollowHandler),
             (r"/myProfile", MyProfileHandler),
+            (r"/search/", SearchHandler),
         ]
         settings = dict(
             app_title=u"TODAY",
