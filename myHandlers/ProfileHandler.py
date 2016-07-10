@@ -49,6 +49,10 @@ class ProfileHandler(BaseHandler):
             hasFollowed=False
         for entry in entries:
             entry.author_name = self.db.get("SELECT * FROM users WHERE id = %s", int(entry.author_id)).name
+            if entry.imgPaths != "":
+                entry.pic_paths = entry.imgPaths.strip(' ').split(' ')
+            else:
+                entry.pic_paths = []
         self.render("profile.html", entries=entries, user=user, hasFollowed=hasFollowed,\
                             page=page, page_size=page_size, results_count=results_count)
 
@@ -67,12 +71,20 @@ class ProfileEditHandler(BaseHandler):
     @tornado.web.authenticated
     def get(self):
         user = self.db.get("SELECT * FROM users WHERE id = %s", self.current_user.id)
-        self.render("profile_edit.html", user=user);
+        self.render("profile_edit.html", user=user, error=None);
 
     @tornado.web.authenticated
     @gen.coroutine
     def post(self):
         user_name = self.get_argument("name")
+
+        current_user= self.db.get("SELECT * FROM users WHERE id = %s",
+                             self.current_user.id)
+        user = self.db.get("SELECT * FROM users WHERE name = %s",
+                             self.get_argument("name"))
+        if user and user.name != current_user.name:
+            self.render("profile_edit.html", user=current_user, error="user name has benn used");
+            return
         try:
             icon_file = self.request.files["iconFile"][0]
         except KeyError:
