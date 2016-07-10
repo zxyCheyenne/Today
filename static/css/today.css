@@ -24,7 +24,7 @@ body {
 body,
 input,
 textarea {
-  font-family: Georgia, serif;
+  font-family: "Roboto", sans-serif, Georgia, serif;
   font-size: 12pt;
 }
 

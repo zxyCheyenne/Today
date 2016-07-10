@@ -36,6 +36,9 @@ class AuthSignupHandler(BaseHandler):
             "VALUES (%s, %s, %s, %s)",
             self.get_argument("email"), self.get_argument("name"),
             hashed_password, default_head_dir+"/small/"+default_head_path)
+        self.db.execute(
+                    "INSERT INTO following (follower_id,followed_id,follower_name,followed_name) VALUES (%s,%s,%s,%s)",
+                    user_id, user_id, self.get_argument("name"),self.get_argument("name"))
         self.set_secure_cookie("today_user", str(user_id))
         self.xsrf_cookie_kwargs=dict(user_name = self.get_argument("name"))
         self.redirect(self.get_argument("next", "/"))
