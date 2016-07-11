@@ -192,3 +192,33 @@ header, main {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+#search {
+  margin-top:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  opacity:0.3;
+}
+
+.input-field a:hover {
+  background-color: #ee6e73;
+  opacity: 0.3;
+}
+
+.card-content p {
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container {
+  padding-top:5%;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #ffb300;
+}

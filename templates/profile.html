@@ -40,3 +40,9 @@
   </div>
   {% module Paginator(page, page_size, results_count) %}
 {% end %}
+{% block bottom %}
+<script type="text/javascript">
+    $("#special-button").attr("href", "/edit/profile");
+    $("#special-button").children().html("mode_edit");
+</script>
+{% end %}

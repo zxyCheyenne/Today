@@ -11,7 +11,7 @@ from textrank4zh import TextRank4Keyword, TextRank4Sentence
 
 class  SearchHandler(BaseHandler):
 	def  get(self):
-		keyName = "s"
+		keyName = "search"
 		keyword = self.get_argument(keyName)
 		text = keyword.decode("utf8")
 		str = '%%' + text + '%%'

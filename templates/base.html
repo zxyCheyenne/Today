@@ -75,7 +75,7 @@
       <!-- Navbar goes here -->
       <nav class="top-nav">
         <div class="nav-wrapper" id="top-nav-wrapper">
-          <a onclick="showSide()" class="hide-on-med-and-down left" style="margin-right:20px;">
+          <a onclick="showSide()" class="hide-on-med-and-down left" style="cursor:pointer;margin-right:20px;">
             <i class="material-icons">menu</i>
           </a>
           <a href="#!" class="brand-logo"><a href="/">{{ escape(handler.settings["app_title"]) }}</a></a>
@@ -83,9 +83,9 @@
             <li>
               <form method="get" id="searchform" action="/search/">
                 <div class="input-field">
-                  <input id="search" type="search" required style="margin-top:10px;padding-top:10px;padding-bottom:10px;opacity:0.3">
-                  <label for="search"><i class="material-icons" style="margin-top:-10px">search</i></label>
-                  <i class="material-icons" style="margin-top:-10px">close</i>
+                  <input id="search" name="search" type="search" required>
+                  <label id="search-label" for="search"><i class="material-icons" style="margin-top:-10px" onclick="showSearch()">search</i></label>
+                  <i id="search-close" class="material-icons" onclick="hideSearch()" style="margin-top:-10px">close</i>
                 </div>
               </form>
             </li>
@@ -113,7 +113,6 @@
           <!--<li class="bold"><a href="/auth/signup">{{ _("Sign up") }}</a></li>-->
           <li class="bold"><a href="/auth/signup">注册</a></li>
         {% end %}
-          <li class="no-padding" onclick="hideSide()"><a><<</a></li>
       </ul>
     </header>
 
@@ -122,15 +121,17 @@
         {% block body %}{% end %}
         {% if current_user %}
           <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-            <a class="btn-floating btn-large red">
+            <a id="special-button" class="btn-floating btn-large red" href="/newPost">
               <i class="material-icons">add</i>
             </a>
+            <!--
             <ul>
               <li><a class="btn-floating red" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">insert_chart</i></a></li>
-              <li><a class="btn-floating yellow darken-1" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;" href="/newPost"><i class="material-icons">format_quote</i></a></li>
+              <li><a class="btn-floating yellow darken-1" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;" ><i class="material-icons">format_quote</i></a></li>
               <li><a class="btn-floating green" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">publish</i></a></li>
               <li><a class="btn-floating blue" style="transform: scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0px); opacity: 0;"><i class="material-icons">attach_file</i></a></li>
             </ul>
+             -->
           </div>
         {% end %}
       </div>
