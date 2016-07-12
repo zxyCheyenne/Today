@@ -128,7 +128,7 @@ var ZXXFILE = {
 		
 		//上传按钮提交
 		if (this.upButton) {
-			this.upButton.addEventListener("click", function(e) { self.funUploadFile(e); }, false);	
+			this.upButton.addEventListener("onsubmit", function(e) { self.funUploadFile(e); }, false);	
 		} 
 	}
 };
