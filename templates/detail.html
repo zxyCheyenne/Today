@@ -7,7 +7,7 @@
   <a href="/profile/{{entry.author_name}}">{{entry.author_name}}</a>
   -->
   <h5 class="col s3 teal lighten-2 white-text z-depth-1" style="padding: 10px;">
-    话语
+    动态
   </h5>
   <div class="col s12">{% raw entry.html %}</div>
   <div>
@@ -22,14 +22,17 @@
   <h5 class="col s3 teal lighten-2 white-text z-depth-1" style="padding: 10px;">评论</h5>
   <div class="col s12">
     {% for comment in comments %}
-    <p>author:{{comment.author_name}}</p>
-    <p>content:{{comment.html}}</p>
-    <div class="date">time:{{ locale.format_date(comment.published, full_format=True, shorter=True) }}</div>
+    <div class="section">
+      <p>{{comment.html}}</p>
+      <p>{{comment.author_name}}</p>
+      <p>{{ locale.format_date(comment.published, full_format=True, shorter=True) }}</p>
+    </div>
+    <div class="divider"></div>
     {% end %}
   </div>
   {% module Paginator(page, page_size, results_count) %}
   <h5 class="col s3 teal lighten-2 white-text z-depth-1" style="padding: 10px;">你想说</h5>
-  <form action= {{"/comment/"+entry.slug}} method="post" class="compose col s12">
+  <form id="commentForm" action= {{"/comment/"+entry.slug}} method="post" class="compose col s12">
     <div class="row">
       <div class="input-field col s12">
         <textarea name="markdown" id="textarea1" class="materialize-textarea"></textarea>
@@ -60,5 +63,14 @@
     });
 
   //]]>
+
+  /*
+    $("#special-button").attr("onclick", "addComment()");
+    $("#special-button").removeAttr("href");
+    $("#special-button").children().html("done");
+    $("#special-button").removeClass("red");
+    $("#special-button").css("background-color", "#ffb300");
+   */
+   
   </script>
 {% end %}

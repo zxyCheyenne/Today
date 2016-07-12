@@ -222,3 +222,29 @@ a {
 a:hover {
   color: #ffb300;
 }
+
+/* choose file upload */
+.input-file {
+    position: relative; /* 保证子元素的定位 */
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.input-button-text {
+    display: inline-block;
+    color: white;
+}
+
+#file, #fileImage {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px; /* 宽高和外围元素保持一致 */
+    height: 35px;
+    opacity: 0;
+    -moz-opacity: 0;  /* 兼容老式浏览器 */
+    filter: alpha(opacity=0); /* 兼容IE */
+}

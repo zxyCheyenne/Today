@@ -30,6 +30,18 @@ function hideSearch() {
 	$("#search").css("margin-left", "-" + $("#search").css("width"));
 }
 
+function editProfile() {
+	$("#userForm").submit();
+}
+
+function addComment() {
+    $("#commentForm").submit();
+}
+
+function postNew() {
+    $("#uploadForm").submit();
+}
+
 window.onload = function() {
 	hideSearch();
 };

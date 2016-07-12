@@ -4,11 +4,30 @@
   {% if error %}
   <span style="color: red">Error: {{ error }}</span><p>
   {% end %}
-  <form action="{{ request.path }}" enctype="multipart/form-data" method="post">
-    user_name:<input name="name" type="text" value={{user.name if user else ""}}><br>
-    头像:<img src="{{ static_url(user.head_path) }}"  alt="icon" /><br>
-    <input name="iconFile" type="file" accept="image/png, image/gif, image/jpeg"><br>
+  <form id="userForm" action="{{ request.path }}" enctype="multipart/form-data" method="post">
+    <div class="section">
+      <h5>用户名</h5>
+      <input name="name" type="text" value={{user.name if user else ""}}>
+    </div>
+    <div class="section">
+      <h5>头像</h5>
+      <img src="{{ static_url(user.head_path) }}" alt="icon" class="circle responsive-img"/>
+    </div>
+    <div class="section">
+      <div class="input-file" class="waves-effect waves-light btn z-depth-1 blue-grey darken-1">
+        <span class="input-button-text">更换</span>
+        <input id="file" type="file" name="iconFile" type="file" accept="image/png, image/gif, image/jpeg"/>
+      </div>
+    </div>
     {% module xsrf_form_html() %}
-    <input type="submit">
   </form>
+{% end %}
+{% block bottom %}
+<script type="text/javascript">
+    $("#special-button").attr("onclick", "editProfile()");
+    $("#special-button").removeAttr("href");
+    $("#special-button").children().html("done");
+    $("#special-button").removeClass("red");
+    $("#special-button").css("background-color", "#ffb300");
+</script>
 {% end %}

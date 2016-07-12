@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <![endif]-->
 
     <!--[if IE]>
@@ -23,6 +23,7 @@
         window.jQuery || document.write("<script src=\"{{ static_url('js/jquery.min.js') }}\">"+"<"+"/script>");
     </script>
 
+    <link href="{{ static_url("css/icon.css") }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ static_url("css/materialize.min.css") }}" type="text/css">
     <script type="text/javascript">
         window.jQuery || document.write("<script src=\"{{ static_url('js/materialize.min.js') }}\">"+"<"+"/script>");
@@ -121,7 +122,7 @@
         {% block body %}{% end %}
         {% if current_user %}
           <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-            <a id="special-button" class="btn-floating btn-large red" href="/newPost">
+            <a id="special-button" class="btn-floating btn-large red" href="/newPost" onclick="">
               <i class="material-icons">add</i>
             </a>
             <!--
