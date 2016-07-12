@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block body %}
+  <!--
   {% if current_user.id == user.id %}
   <a href="/edit/profile">edit profile</a>
   {% end %}
@@ -12,8 +13,36 @@
   {% else %}
   <a href="/unfollow/{{user.name}}">unfollow him/her</a>
   {% end %}
-  {% for entry in entries %}
-    {% module Entry(entry) %}
-  {% end %}
+  -->
+  <div class="divider"></div>
+  <div class="section">
+    <h5>头像</h5>
+    <p><img src="{{ static_url(user.head_path) }}" alt="icon" class="circle responsive-img"/></p>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <h5>用户名</h5>
+    <p>{{user.name}}</p>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <h5>邮箱</h5>
+    <p>{{user.email}}</p>
+  </div>
+  <div class="divider"></div>
+  <div class="section">
+    <h5>最新动态</h5>
+    <p>
+    {% for entry in entries %}
+      {% module Entry(entry) %}
+    {% end %}
+    </p>
+  </div>
   {% module Paginator(page, page_size, results_count) %}
+{% end %}
+{% block bottom %}
+<script type="text/javascript">
+    $("#special-button").attr("href", "/edit/profile");
+    $("#special-button").children().html("mode_edit");
+</script>
 {% end %}

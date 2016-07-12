@@ -1,11 +1,31 @@
+<!--
 <div class="entry">
-  <a href="/detail/{{ entry.slug }}">view all</a>
+  <a href="/profile/{{entry.author_name}}" class="entry-author">{{entry.author_name}}</a>
+  <a href="/detail/{{ entry.slug }}" class="entry-body"><div>{% raw entry.html %}</div></a>
   <div class="date">{{ locale.format_date(entry.published, full_format=True, shorter=True) }}</div>
-  <a href="/profile/{{entry.author_name}}">{{entry.author_name}}</a>
   <div class="body">{% raw entry.html %}</div>
   {% if entry.pic_paths %}
-  {% for pic_path in entry.pic_paths %}
-  <img src="{{ static_url(pic_path) }}"  alt="icon" /><br>
+    {% for pic_path in entry.pic_paths %}
+      <img src="{{ static_url(pic_path) }}"  alt="icon" /><br>
+    {% end %}
   {% end %}
-  {% end %}
+</div>
+  -->
+
+<div class="col s12 m6">
+  <div class="card">
+    {% if entry.pic_paths %}
+      <div class="card-image">
+        <img src="{{ static_url(entry.pic_paths[0]) }}" alt="icon">
+      </div>
+    {% end %}
+    <div class="card-content truncate">
+      <p>{% raw entry.html %}</p>
+    </div>
+    <div class="card-action">
+      <a href="/profile/{{entry.author_name}}">{{entry.author_name}}</a>
+      <span>{{ locale.format_date(entry.published, full_format=True, shorter=True) }}</span>
+      <a href="/detail/{{ entry.slug }}"><i class="material-icons right">more_vert</i></a>
+    </div>
+  </div>
 </div>

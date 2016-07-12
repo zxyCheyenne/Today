@@ -1,11 +1,25 @@
 {% if pages > 1 %}
+<!--
 <div class="pagination pagination-centered">
-  <ul>
-  <li{% if previous %}><a href="{{ get_page_url(previous) }}">&laquo;</a>{% else %} class="disabled"><span>&laquo;</span></li>{% end %}  
+  <ul class="pagination">
+  <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+  <li{% if previous %}><a href="{{ get_page_url(previous) }}"></a>{% else %} class="disabled"></li>{% end %}  
   {% for page_num in xrange(1, pages + 1) %}{# 1-index range #}
   <li{% if page_num != page %}><a href="{{ get_page_url(page_num) }}">{{ page_num }}</a>{% else %} class="active"><span>{{ page_num }}</span></li>{% end %}
   {% end %}
-  <li{% if next %}><a href="{{ get_page_url(next) }}">&raquo;</a>{% else %} class="disabled"><span>&raquo;</span></li>{% end %}  
+  <li{% if next %}><a href="{{ get_page_url(next) }}"></a>{% else %} class="disabled"></li>{% end %}
+  <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
 </ul>
+</div>
+  -->
+
+<div class="col s12 center">
+  <ul class="pagination">
+	<li{% if previous %} class="waves-effect"><a href="{{ get_page_url(previous) }}">{% else %} class="disabled"><a href="#!">{% end %}<i class="material-icons">chevron_left</i></a></li>
+	{% for page_num in xrange(1, pages + 1) %}
+  		<li{% if previous and page_num == previous + 1 or next and page_num == next - 1 %} class="active"{% else %}class="waves-effect"{% end %}><a href="{{ get_page_url(page_num) }}">{{ page_num }}</a></li>
+	{% end %}
+	<li{% if next %} class="waves-effect"><a href="{{ get_page_url(next) }}">{% else %} class="disabled"><a href="#!">{% end %}<i class="material-icons">chevron_right</i></a></li>
+  </ul>
 </div>
 {% end %}

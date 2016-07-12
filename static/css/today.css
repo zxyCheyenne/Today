@@ -15,21 +15,16 @@
  */
 
 body {
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#eee), to(#aaa)); /** Chrome Safari **/ 
-  background: -moz-linear-gradient(top, #eee, #aaa); /** FireFox **/
-  background: -o-linear-gradient(top, #eee, #aaa);  /** Opear **/ 
-  background: -ms-linear-gradient(#eeeeee 0%,#aaaaaa 100%);  /** IE9 IE10 **/
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee',endColorstr='#aaaaaa',grandientType=1); /** IE7 **/ 
-  -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee',endColorstr='#aaaaaa',grandientType=1); /** IE8 **/
+  background: white;
   color: black;
-  margin: 15px;
+  margin: 0px;
   margin-top: 0;
 }
 
 body,
 input,
 textarea {
-  font-family: Georgia, serif;
+  font-family: "Roboto", sans-serif, Georgia, serif;
   font-size: 12pt;
 }
 
@@ -71,6 +66,7 @@ pre {
 a,
 a code {
   color: #00c;
+  text-decoration: none;
 }
 
 #body {
@@ -92,10 +88,6 @@ a code {
   color: white;
 }
 
-#header h1 a {
-  text-decoration: none;
-}
-
 #footer,
 #content {
   margin-left: 10px;
@@ -106,13 +98,34 @@ a code {
   margin-top: 3em;
 }
 
-.entry h1 a {
+.entry a {
   color: black;
   text-decoration: none;
 }
 
 .entry {
   margin-bottom: 2em;
+  border: 1px solid #ddd;
+  overflow:hidden;
+}
+
+.entry-author {
+  display:block;
+  width:15%;
+  float:left;
+  text-align:center;
+}
+
+.entry-body {
+  display:block;
+  float:right;
+  width:85%
+}
+
+.date {
+  float:right;
+  width:80%;
+  text-align:right;
 }
 
 .entry .date {
@@ -158,58 +171,54 @@ a code {
   line-height: 16pt;
 }
 
-/* search form */
-/* 链接 */
-a {
-    text-decoration:none;
-    color:#1c00ff;
-}
- 
-a:hover {
-    color:#5f00e4;
-}
-
-fieldset.search {
-    padding: 0px;
-    border: none;
-    width: 232px;
-    background:#e0e0e0;
-}
- 
-fieldset.search:hover {
-    background: #a8a8a8;
-}
-.search input, .search button {
-    border: none;
-    float: left;
-}
-.search input.box {
-    height: 28px;
-    width: 200;
-    margin-right: 0px;
-    padding-right: 0px;
-    background: #e0e0e0;
-    margin: 1px;
-}
-.search input.box:focus {
-    background: #e8e8e8 ;
-    outline: none;
-}
-.search button.btn {
-    border: none;
-    width: 28px;
-    height: 28px;
-    margin: 0px auto;
-    margin: 1px;
-    background: url(http://sandbox.runjs.cn/uploads/rs/339/livk7pl5/search_blue.png) no-repeat top right;
-}
-.search button.btn:hover {
-    background: url(http://sandbox.runjs.cn/uploads/rs/339/livk7pl5/search_black.png) no-repeat bottom right;
-}
-
 #fileDragArea {
   border-style: solid;
   border-width: 1px;
   height: 50px;
   width: 100%;
+}
+
+/* material design */
+header, main {
+  padding-left: 240px;
+}
+
+#logo-container {
+  padding-top: 20px;
+  height: 100px;
+}
+
+#top-nav-wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#search {
+  margin-top:10px;
+  padding-top:10px;
+  padding-bottom:10px;
+  opacity:0.3;
+}
+
+.input-field a:hover {
+  background-color: #ee6e73;
+  opacity: 0.3;
+}
+
+.card-content p {
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container {
+  padding-top:5%;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: #ffb300;
 }

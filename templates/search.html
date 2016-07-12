@@ -1,16 +1,34 @@
  {% extends "base.html" %}
 
 {% block body %}
-{% for user in users %}
-<div>
-	<p>username:{{ user.name }}</p>
-	<p>useremail:{{ user.email }}</p>
+<div class="row">
+    {% if users %}
+        <h5 class="col s12">相关用户</h5>
+		{% for user in users %}
+		<div class="col s2">
+		  <a href="/profile/{{user.name}}">
+		    <img src="{{ static_url(user.head_path) }}" alt="icon" class="circle responsive-img"> <!-- notice the "circle" class -->
+		    {{user.name}}
+		  </a>
+		</div>
+		{% end %}
+	{% else %}
+	    {% if entries %}
+			<h5 class="col s12">相关动态</h5>
+			<div class="collection">
+			{% for entry in entries %}
+			    <a href="/detail/{{ entry.slug }}" class="collection-item">{% raw entry.html %}</a>
+			    <!--
+				<div>
+					<p>content:</p>
+					<p>author:{{ entry.author_id }}</p>
+				</div>
+				  -->
+			{% end %}
+			</div>
+		{% else %}
+		    <h5 class="col s12">无相关结果</h5>
+		{% end %}
+	{% end %}
 </div>
-{% end %}
-{% for entry in entries %}
-<div>
-	<p>content:{{ entry.html }}</p>
-	<p>author:{{ entry.author_id }}</p>
-</div>
-{% end %}
 {% end %}
